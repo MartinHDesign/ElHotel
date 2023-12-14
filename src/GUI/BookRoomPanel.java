@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class BookRoomPanel extends JPanel {
     private String roomInfoText = """
-            lyxigt rum med badkar 
+            lyxigt rum med badkar
             bla
             bla
             bla
