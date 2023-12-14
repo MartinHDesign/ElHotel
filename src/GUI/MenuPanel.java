@@ -1,21 +1,26 @@
 package GUI;
 
+import Rooms.FrameHandler;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MenuPanel extends JPanel {
-    private JLabel image = new JLabel(new ImageIcon("src/GUI/images/Hotel.jpg"));
+    private String path = "src/GUI/images/Hotel.jpg";
+    private JLabel image = new JLabel(new ImageIcon(path));
     private JButton availableRooms = new JButton("See available rooms");
     private JButton myBookings = new JButton("My bookings");
     private JButton infoHotel = new JButton("About the hotel");
-    public MenuPanel(FrameHandler frameHandler){
+    public MenuPanel(FrameHandler frameHandler, ShowRoom showRoom){
         setVisible(true);
         setLayout(new BorderLayout());
 
         infoHotel.addActionListener(e -> {
             frameHandler.showPage(Panels.INFO.name());});
         availableRooms.addActionListener(e -> {
-            frameHandler.showPage(Panels.SHOWROOM.name());});
+            showRoom.setCenterPanelData(0);
+            frameHandler.showPage(Panels.SHOWROOM.name());
+        });
         myBookings.addActionListener(e -> frameHandler.showPage(Panels.BOOKINGS.name()));
 
 

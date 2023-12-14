@@ -1,38 +1,34 @@
 package Rooms;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 
-public class PresidentialSuite extends Room {
-
-    boolean highTechSecuritySystem;
-    int wetBar;
-    int firePlace;
-    int prepKitchen;
-
-
-
-    public PresidentialSuite(boolean occupied, int amountOfBeds, int price, String description,
-                             boolean highTechSecuritySystem, int wetBar, int firePlace, int prepKitchen) {
-        super(occupied, amountOfBeds, price, description);
-        this.highTechSecuritySystem = highTechSecuritySystem;
-        this.wetBar = wetBar;
-        this.firePlace = firePlace;
-        this.prepKitchen = prepKitchen;
-    }
+public class PresidentialSuite implements Room {
+    private String path = "src/GUI/images/deluxe.jpg";
+    private boolean occupied;
+    private int price = 3000;
+    private String description = "\nA suite represents the epitome of luxury, offering spaciousness, \ndeluxe amenities, and exclusive comforts for an extravagant stay experience.";
 
 
     @Override
-    public String getInfo() {
-        String securitySystemStatus = highTechSecuritySystem ? "Ja" : "Nej";
-        return "PresidentialSuit{" +
-                "Upptaget: " + isOccupied() +
-                "\nAntal sängar: " + getAmountOfBeds() +
-                "\nPris: " + getPrice() +
-                "\nBeskrivning: " + getDescription() +
-                "\nSecurity System ingår: " + securitySystemStatus +
-                "\nBar:" + wetBar +
-                "\nÖppen spis:" + firePlace +
-                "\nKök: " + prepKitchen +
-                "}";
+    public String getDataRoom() {
+        return "For only " + price+"/Night"+description;
     }
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String getPath() {
+        return null;
+    }
+
+    @Override
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
+    }
+
 }

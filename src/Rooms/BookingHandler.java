@@ -1,4 +1,4 @@
-package Bookings;
+package Rooms;
 
 import java.util.ArrayList;
 import java.util.List;

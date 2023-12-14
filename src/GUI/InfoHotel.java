@@ -1,5 +1,7 @@
 package GUI;
 
+import Rooms.FrameHandler;
+
 import javax.swing.*;
 import java.awt.*;
 

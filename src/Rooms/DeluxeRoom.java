@@ -1,28 +1,29 @@
 package Rooms;
 
-public class DeluxeRoom extends Room {
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-    int jacuzzi;
-    boolean conciergeService;
-    int bathrooms;
-
-    public DeluxeRoom(boolean occupied, int amountOfBeds, int price, String description, int jacuzzi, boolean conciergeService, int bathrooms) {
-        super(occupied, amountOfBeds, price, description);
-        this.jacuzzi = jacuzzi;
-        this.conciergeService = conciergeService;
-        this.bathrooms = bathrooms;
+public class DeluxeRoom implements Room {
+    private String path = "src/GUI/images/deluxe.jpg";
+    private boolean occupied;
+    private int price = 799;
+    private String description = "\nA deluxe room epitomizes luxury, offering spaciousness, \npremium amenities, and refined comfort for an \nindulgent and opulent stay experience.";
+    @Override
+    public String getDataRoom() {
+        return "For only " + price+"/Night "+description;
+    }
+    @Override
+    public int getPrice() {
+        return price;
     }
 
     @Override
-    public String getInfo() {
-        return "Room{" +
-                "Upptaget: " + isOccupied() +
-                "\nAntal sängar: " + getAmountOfBeds() +
-                "\nPris: " + getPrice() +
-                "\nBeskrivning: " + getDescription() +
-                "\nAntal Jacuzzi: " + jacuzzi +
-                "\nConcierge:  " + conciergeService +
-                "\nAntal badrum: " + bathrooms +
-                "}";
+    public String getPath() {
+        return path;
+    }
+
+    @Override
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
     }
 }

@@ -1,14 +1,15 @@
 package GUI;
 
+import Rooms.FrameHandler;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class CardLayoutContainer extends JPanel {
     public CardLayoutContainer(CardLayout layout, FrameHandler frameHandler){
-
         ShowRoom showRoom = new ShowRoom(frameHandler);
         BookRoomPanel bookRoom = new BookRoomPanel(frameHandler);
-        MenuPanel menuPanel = new MenuPanel(frameHandler);
+        MenuPanel menuPanel = new MenuPanel(frameHandler, showRoom);
         InfoHotel infoHotel = new InfoHotel(frameHandler);
         PaymentPanel paymentPanel = new PaymentPanel(frameHandler);
         BookingsPanel bookingsPanel = new BookingsPanel(frameHandler);

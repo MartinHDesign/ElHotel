@@ -1,4 +1,4 @@
-package Bookings;
+package Rooms;
 
 import java.time.LocalDate;
 
@@ -7,6 +7,7 @@ public class Booking {
     private LocalDate endDate;
     private String name;
     private int price;
+    private Room room;
     public Booking(LocalDate startDate, LocalDate endDate, String name, int pricePerNight){
         this.startDate = startDate;
         this.endDate = endDate;
