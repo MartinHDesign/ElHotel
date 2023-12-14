@@ -25,6 +25,10 @@ public class FrameHandler extends JFrame {
         layout.show(allPanels, page);
     }
 
+    public BookingHandler getBookingHandler() {
+        return bookingHandler;
+    }
+
     public static void main(String[] args) {
         new FrameHandler();
     }
