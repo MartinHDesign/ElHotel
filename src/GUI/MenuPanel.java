@@ -8,13 +8,15 @@ public class MenuPanel extends JPanel {
     private JButton availableRooms = new JButton("See available rooms");
     private JButton myBookings = new JButton("My bookings");
     private JButton infoHotel = new JButton("About the hotel");
-    public MenuPanel(Frame frame){
+    public MenuPanel(FrameHandler frameHandler){
         setVisible(true);
         setLayout(new BorderLayout());
 
-        infoHotel.addActionListener(e -> {frame.showPage(Panels.INFO.name());});
-        availableRooms.addActionListener(e -> {frame.showPage(Panels.SHOWROOM.name());});
-        myBookings.addActionListener(e -> frame.showPage(Panels.BOOKINGS.name()));
+        infoHotel.addActionListener(e -> {
+            frameHandler.showPage(Panels.INFO.name());});
+        availableRooms.addActionListener(e -> {
+            frameHandler.showPage(Panels.SHOWROOM.name());});
+        myBookings.addActionListener(e -> frameHandler.showPage(Panels.BOOKINGS.name()));
 
 
         JPanel southPanel = new JPanel();

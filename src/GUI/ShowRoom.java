@@ -13,7 +13,7 @@ public class ShowRoom extends JPanel {
 
     private JButton cancel = new JButton("Back to Menu");
 
-    public ShowRoom(Frame frame){
+    public ShowRoom(FrameHandler frameHandler){
         setLayout(new BorderLayout());
 
         buttonPanel.setLayout(new GridLayout(1,3));
@@ -21,8 +21,10 @@ public class ShowRoom extends JPanel {
         buttonPanel.add(boka);
         buttonPanel.add(next);
 
-        boka.addActionListener(e -> {frame.showPage(Panels.BOOKROOM.name());});
-        cancel.addActionListener(e -> {frame.showPage(Panels.MENU.name());});
+        boka.addActionListener(e -> {
+            frameHandler.showPage(Panels.BOOKROOM.name());});
+        cancel.addActionListener(e -> {
+            frameHandler.showPage(Panels.MENU.name());});
 
         add(image,BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);

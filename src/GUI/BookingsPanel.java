@@ -8,7 +8,7 @@ public class BookingsPanel extends JPanel {
     private JLabel bookingInfo = new JLabel(info);
     private JButton menu = new JButton("Back to menu");
     private JButton cancelBooking = new JButton("Cancel booking");
-    public BookingsPanel(Frame frame){
+    public BookingsPanel(FrameHandler frameHandler){
         setLayout(new BorderLayout());
 
         JPanel bookOrders = new JPanel();
@@ -17,7 +17,7 @@ public class BookingsPanel extends JPanel {
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setSize(new Dimension(500,10));
-        menu.addActionListener(e -> frame.showPage(Panels.MENU.name()));
+        menu.addActionListener(e -> frameHandler.showPage(Panels.MENU.name()));
         buttonPanel.add(menu);
         buttonPanel.add(cancelBooking);
 

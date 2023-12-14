@@ -11,12 +11,12 @@ public class InfoHotel extends JPanel {
             """;
     private JTextArea info = new JTextArea(infoText);
     private JButton tillbaka = new JButton("tillbaka");
-    public InfoHotel(Frame frame){
+    public InfoHotel(FrameHandler frameHandler){
         setLayout(new BorderLayout());
         info.setSize(new Dimension(500,490));
         setVisible(true);
         tillbaka.addActionListener(e -> {
-            frame.showPage(Panels.MENU.name());
+            frameHandler.showPage(Panels.MENU.name());
         });
         add(info, BorderLayout.CENTER);
         add(tillbaka, BorderLayout.SOUTH);

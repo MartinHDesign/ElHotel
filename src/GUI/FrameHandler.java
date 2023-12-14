@@ -1,13 +1,17 @@
 package GUI;
 
+import Bookings.BookingHandler;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Frame extends JFrame {
+public class FrameHandler extends JFrame {
     private final CardLayout layout = new CardLayout();
     private final CardLayoutContainer allPanels = new CardLayoutContainer(layout, this);
     private String page = Panels.MENU.name();
-    public Frame(){
+    private BookingHandler bookingHandler;
+    public FrameHandler(){
+        bookingHandler = new BookingHandler();
         add(allPanels);
         showPage(page);
 
@@ -22,6 +26,6 @@ public class Frame extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Frame();
+        new FrameHandler();
     }
 }

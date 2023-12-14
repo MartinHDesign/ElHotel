@@ -7,7 +7,7 @@ public class PaymentPanel extends JPanel {
     private JLabel payment = new JLabel("Implement payment method");
     private JButton confirm = new JButton("Confirm payment");
     private JButton cancel = new JButton("Cancel");
-    public PaymentPanel(Frame frame){
+    public PaymentPanel(FrameHandler frameHandler){
         setLayout(new BorderLayout());
 
         JPanel buttonPanel = new JPanel();
@@ -15,10 +15,10 @@ public class PaymentPanel extends JPanel {
         buttonPanel.setSize(new Dimension(500,10));
 
         confirm.addActionListener(e -> {
-            frame.showPage(Panels.MENU.name());
+            frameHandler.showPage(Panels.MENU.name());
         });
         cancel.addActionListener(e -> {
-            frame.showPage(Panels.MENU.name());
+            frameHandler.showPage(Panels.MENU.name());
         });
 
         buttonPanel.add(confirm);

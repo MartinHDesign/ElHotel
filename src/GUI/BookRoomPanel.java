@@ -23,7 +23,7 @@ public class BookRoomPanel extends JPanel {
     private JButton book = new JButton("To payment");
     private JButton cancel = new JButton("Cancel");
 
-    public BookRoomPanel(Frame frame){
+    public BookRoomPanel(FrameHandler frameHandler){
         setLayout(new BorderLayout());
 
         textAndFields.setLayout(new GridLayout(2,2));
@@ -38,8 +38,9 @@ public class BookRoomPanel extends JPanel {
         buttonPanel.add(book);
         buttonPanel.add(cancel);
 
-        cancel.addActionListener(e -> {frame.showPage(Panels.MENU.name());});
-        book.addActionListener(e -> frame.showPage(Panels.PAYMENT.name()));
+        cancel.addActionListener(e -> {
+            frameHandler.showPage(Panels.MENU.name());});
+        book.addActionListener(e -> frameHandler.showPage(Panels.PAYMENT.name()));
 
 
         add(textAndFields, BorderLayout.NORTH);
