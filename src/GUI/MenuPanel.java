@@ -1,5 +1,6 @@
 package GUI;
 
+import Rooms.Booking;
 import Rooms.FrameHandler;
 
 import javax.swing.*;
@@ -11,17 +12,23 @@ public class MenuPanel extends JPanel {
     private JButton availableRooms = new JButton("See available rooms");
     private JButton myBookings = new JButton("My bookings");
     private JButton infoHotel = new JButton("About the hotel");
-    public MenuPanel(FrameHandler frameHandler, ShowRoom showRoom){
+    public MenuPanel(FrameHandler frameHandler, ShowRoom showRoom, BookingsPanel bookingPanel){
         setVisible(true);
         setLayout(new BorderLayout());
 
         infoHotel.addActionListener(e -> {
             frameHandler.showPage(Panels.INFO.name());});
+
         availableRooms.addActionListener(e -> {
             showRoom.setCenterPanelData(0);
             frameHandler.showPage(Panels.SHOWROOM.name());
         });
-        myBookings.addActionListener(e -> frameHandler.showPage(Panels.BOOKINGS.name()));
+
+        myBookings.addActionListener(e -> {
+            bookingPanel.displayBookings(frameHandler.getBookingHandler().getBookings());
+            bookingPanel.revalidate();
+            frameHandler.showPage(Panels.BOOKINGS.name());
+        });
 
 
         JPanel southPanel = new JPanel();

@@ -7,12 +7,12 @@ import java.awt.*;
 
 public class CardLayoutContainer extends JPanel {
     public CardLayoutContainer(CardLayout layout, FrameHandler frameHandler){
-        ShowRoom showRoom = new ShowRoom(frameHandler);
+        BookingsPanel bookingsPanel = new BookingsPanel(frameHandler);
         BookRoomPanel bookRoom = new BookRoomPanel(frameHandler);
-        MenuPanel menuPanel = new MenuPanel(frameHandler, showRoom);
+        ShowRoom showRoom = new ShowRoom(frameHandler, bookRoom);
+        MenuPanel menuPanel = new MenuPanel(frameHandler, showRoom, bookingsPanel);
         InfoHotel infoHotel = new InfoHotel(frameHandler);
         PaymentPanel paymentPanel = new PaymentPanel(frameHandler);
-        BookingsPanel bookingsPanel = new BookingsPanel(frameHandler);
 
         setLayout(layout);
         add(menuPanel, Panels.MENU.name());

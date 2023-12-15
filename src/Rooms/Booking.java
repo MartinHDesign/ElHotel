@@ -5,17 +5,19 @@ import java.time.LocalDate;
 public class Booking {
     private LocalDate startDate;
     private LocalDate endDate;
-    private String name;
-    private int price;
+    private String bookingName;
+    private int totalPrice;
     private Room room;
-    public Booking(LocalDate startDate, LocalDate endDate, String name, int pricePerNight){
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.name = name;
-        this.price = pricePerNight;
+    public Booking(String bookingName, int amountOfNights, int pricePerNight){
+        this.bookingName = bookingName;
+        this.totalPrice = amountOfNights * pricePerNight;
     }
 
-    public String getName() {
-        return name;
+    public String getBookingName() {
+        return bookingName;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
     }
 }

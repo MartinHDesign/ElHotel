@@ -6,24 +6,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BookRoomPanel extends JPanel {
-    private String roomInfoText = """
-            lyxigt rum med badkar
-            bla
-            bla
-            bla
-            bla
-            499 kr/natt
-            """;
-    private JTextArea roomInfo = new JTextArea(roomInfoText);
+    private JTextArea roomInfo = new JTextArea();
     private JPanel textAndFields = new JPanel();
-    private JLabel name = new JLabel("namn:");
+    private JLabel name = new JLabel("Booking namn:");
     private JTextField writeName = new JTextField();
     private JLabel amountOfNights = new JLabel("How many nights do you wish to stay?");
     private JTextField writeAmountOfNigths = new JTextField();
 
     private JPanel buttonPanel = new JPanel();
-    private JButton book = new JButton("To payment");
+    private JButton book = new JButton("Confirm booking");
     private JButton cancel = new JButton("Cancel");
+    private int roomNumber = 0;
 
     public BookRoomPanel(FrameHandler frameHandler){
         setLayout(new BorderLayout());
@@ -41,8 +34,22 @@ public class BookRoomPanel extends JPanel {
         buttonPanel.add(cancel);
 
         cancel.addActionListener(e -> {
-            frameHandler.showPage(Panels.MENU.name());});
-        book.addActionListener(e -> frameHandler.showPage(Panels.PAYMENT.name()));
+            frameHandler.showPage(Panels.MENU.name());
+                });
+
+        book.addActionListener(e -> {
+            try {
+                if ((writeName.getText() != null) && (writeAmountOfNigths.getText() != null)  ){
+                    frameHandler.getBookingHandler().addBooking(writeName.getText(),
+                            Integer.parseInt(writeAmountOfNigths.getText()), frameHandler.getRoom(roomNumber));
+                    frameHandler.showPage(Panels.MENU.name());
+                }
+                JOptionPane.showMessageDialog(null, "Booking confirmed");
+
+            } catch (NumberFormatException error){
+                JOptionPane.showMessageDialog(null, "Must enter text fields");
+            }
+        });
 
 
         add(textAndFields, BorderLayout.NORTH);
@@ -51,4 +58,11 @@ public class BookRoomPanel extends JPanel {
 
     }
 
+    public void setRoomInfo(String text) {
+        roomInfo.setText(text);
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
 }

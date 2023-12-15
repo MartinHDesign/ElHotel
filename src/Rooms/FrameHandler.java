@@ -41,6 +41,9 @@ public class FrameHandler extends JFrame {
     public String getAvailableRoomsImagePath(int number){
         return availableRooms.get(number).getPath();
     }
+    public int getRoom(int index){
+        return availableRooms.get(index).getPrice();
+    }
 
     public static void main(String[] args) {
         new FrameHandler();

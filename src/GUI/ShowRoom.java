@@ -20,7 +20,7 @@ public class ShowRoom extends JPanel {
     private int showRoomCounter = 0;
     private FrameHandler frameHandler;
 
-    public ShowRoom(FrameHandler frameHandler){
+    public ShowRoom(FrameHandler frameHandler, BookRoomPanel bookRoomPanel){
         this.frameHandler = frameHandler;
         setLayout(new BorderLayout());
 
@@ -37,7 +37,10 @@ public class ShowRoom extends JPanel {
         buttonPanel.add(next);
 
         boka.addActionListener(e -> {
-            frameHandler.showPage(Panels.BOOKROOM.name());});
+            bookRoomPanel.setRoomNumber(showRoomCounter);
+            bookRoomPanel.setRoomInfo(frameHandler.getAvailableRoomsData(showRoomCounter));
+            frameHandler.showPage(Panels.BOOKROOM.name());
+        });
         cancel.addActionListener(e -> {
             frameHandler.showPage(Panels.MENU.name());});
 
