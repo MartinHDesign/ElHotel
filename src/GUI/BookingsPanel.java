@@ -5,7 +5,6 @@ import Rooms.FrameHandler;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookingsPanel extends JPanel {
@@ -57,11 +56,9 @@ public class BookingsPanel extends JPanel {
     public void displayBookings(List<Booking> lista){
         bookOrders.removeAll();
         for ( Booking booking : lista){
-            bookOrders.add(new JLabel("Booking name: " + booking.getBookingName() + "Total price: " + booking.getTotalPrice()+ "kr"));
+            String temp = "Booking name: " + booking.getBookingName() + ".  Total price: " + booking.getTotalPrice()+ "kr";
+            bookOrders.add(new JLabel(temp));
         }
         revalidate();
     }
-//    public void displayBookings(List<Booking> list){
-//        this.list = list;
-//    }
 }
